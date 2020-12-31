@@ -24,9 +24,9 @@
 
             <form class="form">
                 <label class="sr-only" for="inlineFormInputName2">Search for a City: </label>
-                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="userCitySearch">
               
-                <button type="submit" class="btn btn-primary mb-2">Search</button>
+                <button type="submit" id="searchBtn" class="btn btn-primary mb-2">Search</button>
               </form>
 
               <div class="searchedCityNames">
@@ -38,13 +38,13 @@
         </div>
         
         <div class="col-9">
-            <div class="card">
+            <div id="weatherResults" class="card">
                 <div class="card-body">
-                    <h3>Seattle</h3>
-                    <p>Temperature: </p>
-                    <p>Humidity: </p>
-                    <p>Wind Speed: </p>
-                    <p>UV Index: </p>
+                    <h3 id="nameOfCity"></h3>
+                    <p id="temperature"></p>
+                    <p id="humidity"></p>
+                    <p id="windSpeed"></p>
+                    <p id="uvIndex"></p>
 
                 </div>
             </div>

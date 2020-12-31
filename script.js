@@ -1,29 +1,37 @@
 // In Header:
 // Weather Dashboard with Colored Background 
-
+const searchBtn = $("#searchBtn");
+const cityName = $("userCitySearch").val();
+const APIKey = "b68c2816c3aae5fb2825c4d8e7437f5";
+const currentWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
 
 
 //WHEN the user clicks the search button
+$("#searchBtn").on("click", function(event) {
 
-function handleSearch() {
-
-//THEN I get the value that they entered into the search input
+//THEN I get the value that they entered into the search input 
+    event.preventDefault();
     makeWeatherRequest( search );
 
-};
+});
+
 
 function makeWeatherRequest( search ) {
-
-
 
 // NEXT, we heed to build the URL for the first API request
 // EXAMPLE: api.openweathermap.org/data/2.5/weather?q=Seattle&appid=2b68c2816c3aae5fb2825c4d8e7437f5
 // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-// API: 2b68c2816c3aae5fb2825c4d8e7437f5
+
 
 // NEXT, make the request to the URL with jQuery ajax
 
-$.ajax( queryURL ).then( function(response) {
+$.ajax({
+    url: currentWeatherURL,
+    method: "GET"
+}).then( function(response) {
+    console.log(response);
+    $("#nameOfCity").text(response.Name);
+    $("#temperature").text(response.Temperature);
 
     //THEN get the lat and lon out of the 'response' object
 
